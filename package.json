@@ -6,16 +6,18 @@
   "license": "MIT",
   "keywords": [
     "hubot",
+    "hubot-scripts"
     "halflife",
     "counter-strike",
-    "cs"
+    "cs",
+    "game"
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/hubot-scripts/hubot-gamestatus.git"
+    "url": "git://github.com/jpalumickas/hubot-gamestatus.git"
   },
   "bugs": {
-    "url": "https://github.com/hubot-scripts/hubot-gamestatus/issues"
+    "url": "https://github.com/jpalumickas/hubot-gamestatus/issues"
   },
   "dependencies": {
     "hubot": ">= 2.6.0 < 3.0.0",

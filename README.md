@@ -15,10 +15,3 @@ Then add **hubot-gamestatus** to your `external-scripts.json`:
 ```json
 ["hubot-gamestatus"]
 ```
-
-## Sample Interaction
-
-```
-user1>> hubot hello
-hubot>> hello!
-```
