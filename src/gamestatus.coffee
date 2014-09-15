@@ -1,8 +1,5 @@
 # Description
-#   how detail information about game server.
-#
-# Dependencies:
-#   "gamedig": "0.2.4"
+#   Show detail information about game server.
 #
 # Configuration:
 #   None
@@ -14,7 +11,7 @@
 #   Justas Palumickas [jpalumickas@gmail.com]
 
 gamedig = require('gamedig')
-_       = require('underscore')
+_ = require('underscore')
 
 module.exports = (robot) ->
 

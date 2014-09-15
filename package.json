@@ -1,7 +1,7 @@
 {
   "name": "hubot-gamestatus",
   "description": "Show detail information about game server.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Justas Palumickas <jpalumickas@gmail.com>",
   "license": "MIT",
   "keywords": [
@@ -21,7 +21,8 @@
   },
   "dependencies": {
     "hubot": ">= 2.6.0 < 3.0.0",
-    "gamedig": "^0.2.4"
+    "gamedig": "^0.2.4",
+    "underscore": "^1.7.0"
   },
   "devDependencies": {
     "mocha": "*",
