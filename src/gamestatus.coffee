@@ -88,7 +88,7 @@ module.exports = (robot) ->
         return msg.send "There is no players in the server at this moment."
 
       messages = ['Players:']
-      messages = _.each state.players, (player, index) ->
+      _.each state.players, (player, index) ->
         messages.push "#{index+1}. #{player.name} (Score: #{player.score}, Time: #{player.time})"
 
       msg.send messages.join("\n")
