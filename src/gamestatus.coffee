@@ -1,11 +1,13 @@
 # Description
 #   Show detail information about game server.
 #
-# Configuration:
-#   None
-#
 # Commands:
-#   hubot show <game_type> game status for <server_address> - Show information about game server
+#   hubot show <game_type> game status for <server_address> - Show information about game server.
+#   hubot show game servers - Show your all game servers.
+#   hubot add <name> game server <game_type> <server_address> - Add game server to the list.
+#   hubot remove <name> game server - Removes game server from the list.
+#   hubot show <name> server information - Show all information about game server.
+#   hubot show <name> server players - Show currently playing players in the game server.
 #
 # Author:
 #   Justas Palumickas [jpalumickas@gmail.com]
@@ -80,14 +82,16 @@ module.exports = (robot) ->
 
   print_server_players = (game_type, server_address, msg) ->
     Gamedig.query server_params(game_type, server_address), (state) ->
-      if state.error
-        msg.send "Server is offline."
-      else
-        if state.players.length < 1
-          return msg.send "There is no players in the server at this moment."
-        msg.send 'Players:'
-        _.each state.players, (player, index) ->
-          msg.send "#{index+1}. #{player.name} (Score: #{player.score}, Time: #{player.time}"
+      return msg.send("Server is offline.") if state.error
+
+      if state.players.length < 1
+        return msg.send "There is no players in the server at this moment."
+
+      messages = ['Players:']
+      messages = _.each state.players, (player, index) ->
+        messages.push "#{index+1}. #{player.name} (Score: #{player.score}, Time: #{player.time})"
+
+      msg.send messages.join("\n")
       return
 
   print_server_information = (game_type, server_address, msg) ->
