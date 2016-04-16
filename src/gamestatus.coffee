@@ -5,6 +5,7 @@
 #   hubot show <game_type> game status for <server_address> - Show information about game server.
 #   hubot add <name> game server <game_type> <server_address> - Add game server to the list.
 #   hubot show game servers - Show your all game servers.
+#   hubot show all servers information - Show your all game servers basic information.
 #   hubot remove <name> game server - Removes game server from the list.
 #   hubot show <name> server information - Show all information about game server.
 #   hubot show <name> server players - Show currently playing players in the game server.
@@ -17,7 +18,7 @@ _ = require('lodash')
 
 module.exports = (robot) ->
 
-  robot.brain.on 'loaded', =>
+  robot.brain.on 'loaded', ->
     robot.brain.data.game_servers ||= []
 
   robot.respond /show (.+) game status for (.+)/, (msg) ->
@@ -61,6 +62,24 @@ module.exports = (robot) ->
 
     print_server_information(server.game_type, server.address, msg)
 
+  # Show all servers basic information
+  robot.respond /show all servers (info|information)/, (msg) ->
+    if robot.brain.data.game_servers.length < 1
+      return msg.send "There is no game servers in the list. Please add one."
+
+    _.each robot.brain.data.game_servers, (server, index) ->
+      Gamedig.query server_params(server.game_type, server.address), (state) ->
+          if state.error
+            msg.send "#{index+1}. Server '#{server.name}' is offline."
+          else
+            msg.send [
+              "#{index+1}."
+              state.name,
+              "Players #{state.raw.numplayers}/#{state.maxplayers}"
+              "Map: #{state.map}",
+            ].join(" ")
+          return
+
   robot.respond /show (.+) server players/, (msg) ->
     server = _.find robot.brain.data.game_servers, (server) ->
       return server.name == msg.match[1]
@@ -89,7 +108,7 @@ module.exports = (robot) ->
 
       messages = ['Players:']
       _.each state.players, (player, index) ->
-        messages.push "#{index+1}. #{player.name} (Score: #{player.score}, Time: #{player.time})"
+        messages.push "#{index+1}. #{player.name} (Score: #{player.score}, Time: #{player.time}, Team: #{player.team})"
 
       msg.send messages.join("\n")
       return
