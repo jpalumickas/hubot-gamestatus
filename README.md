@@ -27,6 +27,8 @@ Then add **hubot-gamestatus** to your `external-scripts.json`:
 #### Add game server to the list
 `hubot add <name> game server <game_type> <server_address>`
 
+**Example:** `hubot add csdm game server cs16 cs.myserver.com:27015`
+
 #### Show your all game servers
 `hubot show game servers`
 
@@ -36,7 +38,7 @@ Then add **hubot-gamestatus** to your `external-scripts.json`:
 #### Show all information about game server
 `hubot show <name> server information`
 
-##### Show currently playing players in the game server
+#### Show currently playing players in the game server
 `hubot show <name> server players`
 
 ## Copyright
