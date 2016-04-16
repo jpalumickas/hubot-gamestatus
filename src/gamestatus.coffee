@@ -3,8 +3,8 @@
 #
 # Commands:
 #   hubot show <game_type> game status for <server_address> - Show information about game server.
-#   hubot show game servers - Show your all game servers.
 #   hubot add <name> game server <game_type> <server_address> - Add game server to the list.
+#   hubot show game servers - Show your all game servers.
 #   hubot remove <name> game server - Removes game server from the list.
 #   hubot show <name> server information - Show all information about game server.
 #   hubot show <name> server players - Show currently playing players in the game server.
@@ -13,7 +13,7 @@
 #   Justas Palumickas [jpalumickas@gmail.com]
 
 gamedig = require('gamedig')
-_ = require('underscore')
+_ = require('lodash')
 
 module.exports = (robot) ->
 
@@ -69,14 +69,14 @@ module.exports = (robot) ->
 
     print_server_players(server.game_type, server.address, msg)
 
+  # Return server parameters for Gamedig
   server_params = (game_type, server_address) ->
     server_address = server_address.split(':')
+    host = server_address[0]
+    port = server_address[1]
 
-    params = {
-      type: game_type
-      host: server_address[0]
-    }
-    params.port = parseInt(server_address[1]) if server_address[1]
+    params = { type: game_type, host: host }
+    params.port = parseInt(port) if port
 
     return params
 
@@ -85,7 +85,7 @@ module.exports = (robot) ->
       return msg.send("Server is offline.") if state.error
 
       if state.players.length < 1
-        return msg.send "There is no players in the server at this moment."
+        return msg.send "There is no players in this server at this moment."
 
       messages = ['Players:']
       _.each state.players, (player, index) ->

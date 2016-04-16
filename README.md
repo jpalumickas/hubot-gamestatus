@@ -2,9 +2,8 @@
 
 [![NPM Version](https://img.shields.io/npm/v/hubot-gamestatus.svg?maxAge=2592000&style=flat-square)][npmjs]
 
-Show detail information about game server.
+Show detail information about game server
 
-See [`src/gamestatus.coffee`](src/gamestatus.coffee) for full documentation.
 
 ## Installation
 
@@ -20,7 +19,7 @@ Then add **hubot-gamestatus** to your `external-scripts.json`:
 ["hubot-gamestatus"]
 ```
 
-## Usage:
+## Usage
 
 #### Show information about game server
 `hubot show <game_type> game status for <server_address>`

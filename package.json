@@ -4,7 +4,6 @@
   "version": "0.0.4",
   "author": "Justas Palumickas <jpalumickas@gmail.com>",
   "license": "MIT",
-
   "keywords": [
     "hubot",
     "hubot-scripts",
@@ -13,25 +12,20 @@
     "cs",
     "game"
   ],
-
   "repository": {
     "type": "git",
     "url": "git://github.com/jpalumickas/hubot-gamestatus.git"
   },
-
   "bugs": {
     "url": "https://github.com/jpalumickas/hubot-gamestatus/issues"
   },
-
   "dependencies": {
-    "gamedig": "^0.2.4",
-    "underscore": "^1.7.0"
+    "gamedig": "^0.2.24",
+    "lodash": "^4.11.1"
   },
-
   "peerDependencies": {
     "hubot": "2.x"
   },
-
   "devDependencies": {
     "chai": "^2.1.1",
     "coffee-script": "1.6.3",
@@ -46,9 +40,7 @@
     "sinon": "^1.13.0",
     "sinon-chai": "^2.7.0"
   },
-
   "main": "index.coffee",
-
   "scripts": {
     "test": "grunt test"
   }
