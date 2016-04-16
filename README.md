@@ -1,4 +1,6 @@
-# Hubot-GameStatus
+# Hubot Game Status
+
+[![NPM Version](https://img.shields.io/npm/v/hubot-gamestatus.svg?maxAge=2592000&style=flat-square)][npmjs]
 
 Show detail information about game server.
 
@@ -8,7 +10,9 @@ See [`src/gamestatus.coffee`](src/gamestatus.coffee) for full documentation.
 
 In hubot project repo, run:
 
-`npm install hubot-gamestatus --save`
+```sh
+npm install hubot-gamestatus --save
+```
 
 Then add **hubot-gamestatus** to your `external-scripts.json`:
 
@@ -16,15 +20,29 @@ Then add **hubot-gamestatus** to your `external-scripts.json`:
 ["hubot-gamestatus"]
 ```
 
-## Commands:
-`hubot show <game_type> game status for <server_address>` - Show information about game server.
+## Usage:
 
-`hubot show game servers` - Show your all game servers.
+#### Show information about game server
+`hubot show <game_type> game status for <server_address>`
 
-`hubot add <name> game server <game_type> <server_address>` - Add game server to the list.
+#### Add game server to the list
+`hubot add <name> game server <game_type> <server_address>`
 
-`hubot remove <name> game server` - Removes game server from the list.
+#### Show your all game servers
+`hubot show game servers`
 
-`hubot show <name> server information` - Show all information about game server.
+#### Removes game server from the list
+`hubot remove <name> game server`
 
-`hubot show <name> server players` - Show currently playing players in the game server.
+#### Show all information about game server
+`hubot show <name> server information`
+
+##### Show currently playing players in the game server
+`hubot show <name> server players`
+
+## Copyright
+Copyright (c) 2014-2016 Justas Palumickas.
+See [LICENSE][license] for details.
+
+[npmjs]: https://www.npmjs.com/package/hubot-gamestatus
+[license]: https://raw.githubusercontent.com/jpalumickas/hubot-gamestatus/master/LICENSE
