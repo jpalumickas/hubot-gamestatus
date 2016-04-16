@@ -1,6 +1,7 @@
 # Hubot Game Status
 
 [![NPM Version](https://img.shields.io/npm/v/hubot-gamestatus.svg?maxAge=2592000&style=flat-square)][npmjs]
+[![Dependencies](https://img.shields.io/david/jpalumickas/hubot-gamestatus.svg?style=flat-square)][david-dm]
 
 Show detail information about game server
 
@@ -46,4 +47,5 @@ Copyright (c) 2014-2016 Justas Palumickas.
 See [LICENSE][license] for details.
 
 [npmjs]: https://www.npmjs.com/package/hubot-gamestatus
+[david-dm]: https://david-dm.org/jpalumickas/hubot-gamestatus
 [license]: https://raw.githubusercontent.com/jpalumickas/hubot-gamestatus/master/LICENSE
